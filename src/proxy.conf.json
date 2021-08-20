@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "https://prezemi-akcija-backend.netlify.app",
+    "target": "https://prezemi-akcija-backend.herokuapp.com/",
     "secure": false
   }
 }
