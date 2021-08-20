@@ -1,0 +1,63 @@
+<!-- <nb-card accent="primary"> -->
+<nb-card>
+  <nb-card-body>
+    <nb-actions fullWidth>
+      <nb-action
+        icon="home-outline"
+        title="Prezemi Akcija"
+        routerLink="/home"
+        class="link text-center"
+      >
+        <!-- Prezemi Akcija -->
+      </nb-action>
+
+      <nb-action
+        icon="plus-outline"
+        title="Start an initiative"
+        routerLink="/initiatives/new"
+        class="link text-center"
+      >
+        <!-- Start an initiative -->
+      </nb-action>
+
+      <nb-action
+        icon="globe-2-outline"
+        title="Browse initiatives"
+        routerLink="/initiatives"
+        class="link text-center"
+      >
+        <!-- Browse initiatives -->
+      </nb-action>
+
+      <nb-action
+        icon="log-in-outline"
+        title="Log in"
+        routerLink="/login"
+        class="link text-center"
+        *ngIf="!checkIfUserIsSignedIn()"
+      >
+        <!-- Log in -->
+      </nb-action>
+
+      <nb-action
+        icon="log-out-outline"
+        title="Log out"
+        (click)="logOut()"
+        class="link text-center"
+        *ngIf="checkIfUserIsSignedIn()"
+      >
+        <!-- Log out -->
+      </nb-action>
+
+      <nb-action
+        icon="people-outline"
+        title="Join our community"
+        routerLink="/register"
+        class="link text-center"
+        *ngIf="!checkIfUserIsSignedIn()"
+      >
+        <!-- Register -->
+      </nb-action>
+    </nb-actions>
+  </nb-card-body>
+</nb-card>

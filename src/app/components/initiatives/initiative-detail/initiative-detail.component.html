@@ -1,0 +1,120 @@
+<nb-card *ngIf="initiative">
+  <nb-card-body>
+    <nb-tabset fullWidth>
+      <nb-tab tabTitle="Details" class="pt-5">
+        <p>
+          Tags:
+          <nb-tag-list>
+            <nb-tag
+              appearance="outline"
+              size="tiny"
+              status="primary"
+              [text]="initiative.category"
+            ></nb-tag>
+            <nb-tag
+              appearance="outline"
+              size="tiny"
+              status="primary"
+              [text]="initiative.eventType"
+            ></nb-tag>
+          </nb-tag-list>
+        </p>
+        <p class="justified-text">
+          Title: <b>"</b> {{ initiative.title }} <b>"</b>
+        </p>
+        <p class="justified-text">
+          Description: <b>"</b> {{ initiative.description }} <b>"</b>
+        </p>
+        <p class="justified-text">
+          Location: <b>"</b> {{ initiative.location }} <b>"</b>
+        </p>
+        <p>
+          Save the date:
+          <nb-icon icon="calendar-outline" status="primary"></nb-icon>
+          <span class="p-1">
+            {{ initiative.scheduledFor | date: "medium" }}</span
+          >
+        </p>
+        <p class="d-flex justify-content-center">
+          <button
+            nbButton
+            shape="round"
+            size="small"
+            status="basic"
+            [routerLink]="['/initiatives/']"
+            class="m-1"
+          >
+            Back
+          </button>
+          <button
+            nbButton
+            *ngIf="isUserCreatorOfInitiative(initiative.initiatorEmail)"
+            shape="round"
+            size="small"
+            status="primary"
+            [routerLink]="['/initiatives/edit', initiative.id]"
+            class="m-1"
+          >
+            Edit
+          </button>
+          <button
+            nbButton
+            *ngIf="isUserCreatorOfInitiative(initiative.initiatorEmail)"
+            shape="round"
+            size="small"
+            status="danger"
+            class="m-1"
+            (click)="deleteInitiative(initiative.id)"
+          >
+            Delete
+          </button>
+        </p>
+      </nb-tab>
+      <nb-tab tabTitle="Participants" class="pt-4">
+        <div class="d-flex justify-content-around align-items-center">
+          <p>List of current <strong>participants</strong>.</p>
+          <button
+            nbButton
+            status="primary"
+            shape="round"
+            class="mb-3"
+            (click)="changeParticipation()"
+          >
+            {{ participating ? "Leave initiative" : "Join now" }}
+          </button>
+        </div>
+        <p
+          *ngIf="
+            !initiative.participantEmails ||
+            initiative.participantEmails.length === 0
+          "
+          class="text-center"
+        >
+          No participants yet, be the first one to join!
+        </p>
+        <nb-card
+          size="small"
+          *ngIf="
+            initiative.participantEmails &&
+            initiative.participantEmails.length !== 0
+          "
+        >
+          <nb-list>
+            <nb-list-item
+              *ngFor="let participant of initiative.participantEmails"
+            >
+              <nb-user [name]="participant" title="Member of Prezemi Akcija">
+              </nb-user>
+            </nb-list-item>
+          </nb-list>
+        </nb-card>
+      </nb-tab>
+      <nb-tab tabTitle="Forum" class="pt-5">
+        <app-forum></app-forum>
+      </nb-tab>
+    </nb-tabset>
+  </nb-card-body>
+  <nb-card-footer class="text-center">
+    <p>Published by {{ initiative.initiatorEmail }}</p>
+  </nb-card-footer>
+</nb-card>

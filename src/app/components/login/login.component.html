@@ -1,0 +1,94 @@
+<nb-card size="medium" class="text-center">
+  <nb-card-header>Gain access to more than 100+ initiatives!</nb-card-header>
+  <nb-card-body class="d-flex justify-content-center">
+    <form
+      class="d-flex flex-column justify-content-around"
+      [formGroup]="loginForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <div>
+        <label for="email">Email address</label>
+        <nb-form-field class="mt-1">
+          <input
+            nbInput
+            fullWidth
+            type="email"
+            id="email"
+            formControlName="email"
+          />
+          <div *ngIf="email.invalid && (email.dirty || email.touched)">
+            <small class="text-danger" *ngIf="email.errors.required">
+              This field is required.
+            </small>
+            <small class="text-danger" *ngIf="email.errors.email">
+              Please enter a valid email address.
+            </small>
+            <small class="text-danger" *ngIf="email.errors.maxlength">
+              The maximum length for this field is 255 characters.
+            </small>
+          </div>
+          <!-- <nb-icon
+            nbSuffix
+            icon="email-outline"
+            status="primary"
+            pack="eva"
+          ></nb-icon> -->
+        </nb-form-field>
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <nb-form-field class="mt-1">
+          <input
+            nbInput
+            fullWidth
+            type="password"
+            id="password"
+            formControlName="password"
+          />
+          <div *ngIf="password.invalid && (password.dirty || password.touched)">
+            <small class="text-danger" *ngIf="password.errors.required">
+              This field is required.
+            </small>
+            <small class="text-danger" *ngIf="password.errors.minlength">
+              The minimum length for this field is 8 characters.
+            </small>
+            <small class="text-danger" *ngIf="password.errors.maxlength">
+              The maximum length for this field is 16 characters.
+            </small>
+          </div>
+          <!-- <nb-icon
+            nbSuffix
+            icon="lock-outline"
+            status="primary"
+            pack="eva"
+          ></nb-icon> -->
+        </nb-form-field>
+      </div>
+      <div>
+        <a routerLink="/register" class="text-pimary">Don't have an account?</a>
+      </div>
+      <div class="d-flex justify-content-around mt-2 mb-2">
+        <button
+          nbButton
+          type="button"
+          shape="round"
+          size="small"
+          status="danger"
+          (click)="onCancel()"
+        >
+          Cancel
+        </button>
+        <button
+          nbButton
+          type="submit"
+          shape="round"
+          size="small"
+          status="primary"
+          [disabled]="loginForm.invalid"
+        >
+          Log in
+        </button>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>

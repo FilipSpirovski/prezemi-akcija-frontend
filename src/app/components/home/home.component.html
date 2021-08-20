@@ -1,0 +1,84 @@
+<nb-flip-card class="text-center">
+  <nb-card-front>
+    <nb-card accent="primary" size="medium">
+      <nb-card-header>What is Prezemi Akcija?</nb-card-header>
+      <nb-card-body class="justified-text">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu
+          diam tortor. Nullam nec purus sollicitudin, fermentum nulla nec,
+          malesuada ex. Quisque dignissim vehicula mauris, sit amet convallis
+          tortor vestibulum vitae. Curabitur a interdum orci. Maecenas
+          vestibulum a diam sit amet eleifend. Morbi pharetra sapien eu velit
+          consequat gravida. Pellentesque nunc nulla, egestas finibus sagittis
+          eget, eleifend tristique magna. Nunc maximus consectetur leo, et
+          tristique nisi imperdiet ac. Donec sit amet commodo mi, sed fermentum
+          orci. Pellentesque ipsum felis, venenatis id sagittis ac, dictum vitae
+          velit.
+        </p>
+        <p>
+          Vestibulum sit amet eros elit. Quisque eros turpis, iaculis et justo
+          eget, vehicula fermentum dolor. Maecenas odio odio, tempus id ultrices
+          sed, consequat nec purus. In vehicula massa in mi blandit ultricies.
+          Pellentesque cursus sapien eu egestas aliquet. Integer gravida
+          pellentesque pharetra. Nulla facilisi. Morbi pretium, sapien eget
+          cursus rhoncus, quam diam dictum diam, ac dignissim ante ipsum id
+          nisi. Morbi scelerisque, massa at consequat molestie, arcu mauris
+          dictum risus, in porta erat est ut tellus.
+        </p>
+        <p>
+          Nam suscipit lobortis orci, eget placerat metus tempus in. Morbi eget
+          neque ipsum. Curabitur posuere euismod dui et efficitur. Donec quis
+          diam euismod, fringilla lorem ac, auctor erat. Curabitur sed hendrerit
+          turpis, non accumsan elit.
+        </p>
+      </nb-card-body>
+      <nb-card-footer>
+        <p>
+          <a routerLink="/initiatives">
+            Discover the latest trending initiatives
+          </a>
+        </p>
+      </nb-card-footer>
+    </nb-card>
+  </nb-card-front>
+  <nb-card-back>
+    <nb-card accent="primary" size="medium">
+      <nb-card-header>Who are we and what is our main goal?</nb-card-header>
+      <nb-card-body class="justified-text">
+        <p>
+          Ut cursus arcu erat, non commodo lacus tempor at. Phasellus in mattis
+          turpis, nec pharetra nunc. Vivamus facilisis rhoncus justo, non
+          ullamcorper libero ullamcorper vitae. Nam a arcu quam. Pellentesque
+          scelerisque nisl non viverra interdum. In sodales tortor sed orci
+          posuere, sed aliquam enim pharetra. Suspendisse accumsan lorem turpis,
+          ac molestie turpis venenatis porta. Sed vulputate felis ante. Duis
+          dapibus tortor a ornare aliquet. Pellentesque eget dapibus nisi.
+        </p>
+        <p>
+          Aliquam viverra dignissim commodo. Morbi eget luctus felis.
+          Suspendisse non convallis tellus. Morbi sed accumsan ligula.
+          Vestibulum mollis consequat massa quis fermentum. Morbi varius dictum
+          massa, ac ultricies eros. Maecenas eleifend urna in neque ornare
+          ullamcorper. Quisque metus turpis, mattis vel tortor in, malesuada
+          fermentum urna. Quisque convallis condimentum nunc euismod vulputate.
+        </p>
+        <p>
+          Mauris leo tortor, imperdiet suscipit laoreet a, pharetra nec odio.
+          Aenean viverra malesuada magna vitae interdum. Aenean aliquam ex sit
+          amet fermentum dignissim. Mauris pellentesque nisl in lacus convallis
+          lobortis. Sed mattis leo eros, vitae blandit justo posuere et.
+          Praesent cursus vestibulum orci, non venenatis sem malesuada et. Sed
+          sodales consectetur nisi luctus bibendum. Nam in ipsum cursus, blandit
+          dui sed, dictum enim.
+        </p>
+      </nb-card-body>
+      <nb-card-footer>
+        <p>
+          <a *ngIf="!checkIfUserIsSignedIn()" routerLink="/register">
+            Become a member of our community
+          </a>
+        </p>
+      </nb-card-footer>
+    </nb-card>
+  </nb-card-back>
+</nb-flip-card>

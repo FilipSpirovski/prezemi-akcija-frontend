@@ -1,0 +1,63 @@
+<div class="d-flex justify-content-between align-items-center mb-5">
+  <textarea
+    nbInput
+    fullWidth
+    fieldSize="small"
+    placeholder="Leave your comment here..."
+    [formControl]="commentControl"
+  ></textarea>
+  <div
+    *ngIf="comment.invalid && (comment.dirty || comment.touched)"
+    class="text-center"
+  >
+    <small class="text-danger" *ngIf="comment.errors.required">
+      This field is required.
+    </small>
+    <small class="text-danger" *ngIf="comment.errors.maxlength">
+      The maximum length for this field is 255 characters.
+    </small>
+  </div>
+  <nb-icon
+    icon="navigation-2-outline"
+    status="primary"
+    class="m-3 pr-3 link"
+    (click)="onSubmit()"
+  ></nb-icon>
+</div>
+<p *ngIf="!comments || comments.length === 0" class="text-center">
+  No comments yet, be the first one to comment!
+</p>
+<nb-card
+  size="medium"
+  *ngIf="comments && comments.length !== 0"
+  class="text-center"
+>
+  <nb-card-header>
+    <span>Every opinion matters.</span>
+    <nb-icon icon="message-circle-outline" status="primary"></nb-icon>
+  </nb-card-header>
+  <nb-card-body>
+    <nb-list>
+      <nb-list-item
+        *ngFor="let comment of comments"
+        class="d-flex justify-content-between"
+      >
+        <!-- <nb-icon icon="message-circle-outline" status="primary"></nb-icon> -->
+        <span> {{ comment.submitterEmail }}:</span>
+        <span class="p-2 jusified-text">
+          <strong>" </strong>{{ comment.text }} <strong> "</strong>
+        </span>
+        <button
+          nbButton
+          *ngIf="isUserSubmitterOfComment(comment.submitterEmail)"
+          shape="round"
+          size="small"
+          status="danger"
+          (click)="deleteComment(comment.id)"
+        >
+          Delete
+        </button>
+      </nb-list-item>
+    </nb-list>
+  </nb-card-body>
+</nb-card>

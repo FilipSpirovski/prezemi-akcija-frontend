@@ -1,0 +1,16 @@
+<nb-card
+  accent="primary"
+  [routerLink]="['/initiatives', initiative.id]"
+  class="link text-center"
+  *ngFor="let initiative of initiatives$ | async"
+>
+  <nb-card-header>
+    {{ initiative.title }}
+  </nb-card-header>
+  <nb-card-body class="justified-text">
+    {{ initiative.description | shortDescription }}...
+  </nb-card-body>
+  <nb-card-footer>
+    Published by {{ initiative.initiatorEmail }}
+  </nb-card-footer>
+</nb-card>

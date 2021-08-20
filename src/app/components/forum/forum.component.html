@@ -1,0 +1,7 @@
+<div *ngIf="forum" class="d-flex flex-column align-items-center mb-3">
+  <p><strong>Reasons for joining the initiative</strong></p>
+  <p>
+    Any questions, comments, thoughts or ideas? Feel free to share them below!
+  </p>
+</div>
+<app-comments [forumId]="forum.id"></app-comments>

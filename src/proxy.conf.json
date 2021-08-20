@@ -1,0 +1,6 @@
+{
+  "/api": {
+    "target": "https://prezemi-akcija-backend.netlify.app",
+    "secure": false
+  }
+}
