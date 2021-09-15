@@ -62,7 +62,7 @@ import { ShortDescriptionPipe } from './services/pipes/short-description.pipe';
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       closeButton: true,
-      timeOut: 2000,
+      timeOut: 0,
       positionClass: 'toast-bottom-right',
     }),
     HttpClientModule,

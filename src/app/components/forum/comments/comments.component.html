@@ -1,5 +1,9 @@
-<div class="d-flex justify-content-between align-items-center mb-5">
+<div
+  class="d-flex justify-content-between align-items-center mb-5"
+  id="app-comments"
+>
   <textarea
+    id="commentForm"
     nbInput
     fullWidth
     fieldSize="small"
@@ -18,6 +22,7 @@
     </small>
   </div>
   <nb-icon
+    id="submit-comment-icon"
     icon="navigation-2-outline"
     status="primary"
     class="m-3 pr-3 link"
@@ -40,7 +45,7 @@
     <nb-list>
       <nb-list-item
         *ngFor="let comment of comments"
-        class="d-flex justify-content-between"
+        class="d-flex justify-content-between comment"
       >
         <!-- <nb-icon icon="message-circle-outline" status="primary"></nb-icon> -->
         <span> {{ comment.submitterEmail }}:</span>
@@ -49,6 +54,7 @@
         </span>
         <button
           nbButton
+          class="delete-comment-button"
           *ngIf="isUserSubmitterOfComment(comment.submitterEmail)"
           shape="round"
           size="small"

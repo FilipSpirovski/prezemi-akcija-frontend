@@ -1,4 +1,4 @@
-<nb-card *ngIf="initiative">
+<nb-card *ngIf="initiative" id="app-initiative-detail">
   <nb-card-body>
     <nb-tabset fullWidth>
       <nb-tab tabTitle="Details" class="pt-5">
@@ -48,6 +48,7 @@
           </button>
           <button
             nbButton
+            id="edit-initiative-button"
             *ngIf="isUserCreatorOfInitiative(initiative.initiatorEmail)"
             shape="round"
             size="small"
@@ -59,6 +60,7 @@
           </button>
           <button
             nbButton
+            id="delete-initiative-button"
             *ngIf="isUserCreatorOfInitiative(initiative.initiatorEmail)"
             shape="round"
             size="small"
@@ -75,6 +77,7 @@
           <p>List of current <strong>participants</strong>.</p>
           <button
             nbButton
+            id="change-participation-button"
             status="primary"
             shape="round"
             class="mb-3"
@@ -93,6 +96,7 @@
           No participants yet, be the first one to join!
         </p>
         <nb-card
+          id="initiative-participants"
           size="small"
           *ngIf="
             initiative.participantEmails &&

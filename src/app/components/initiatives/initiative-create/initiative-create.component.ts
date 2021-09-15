@@ -116,6 +116,7 @@ export class InitiativeCreateComponent implements OnInit {
   }
 
   onSubmit(): void {
+    console.log(this.scheduledFor.value)
     const initiativeDto: InitiativeDto = {
       categoryName: this.categoryName.value,
       title: this.title.value,
